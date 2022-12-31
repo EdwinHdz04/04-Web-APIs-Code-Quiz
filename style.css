@@ -40,7 +40,7 @@
 }
 /*--------------------------------*/
 .inner-Window{
-   background-color: rgba(0, 0, 0,.5);
+   background-color: white(0, 0, 0,.5);
    height: 100%;
    width: 50%;
    margin:0 auto;
@@ -48,5 +48,7 @@
    flex-direction: column;
    justify-content: column;
 } 
-
+#correctanswer{
+   visibility: hidden; 
+}
 
