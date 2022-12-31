@@ -51,4 +51,6 @@
 #correctanswer{
    visibility: hidden; 
 }
-
+#Highscores{
+   display: none;
+}
