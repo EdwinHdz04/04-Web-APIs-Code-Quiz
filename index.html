@@ -15,7 +15,7 @@
         <!--Top bar section -->
         <div class= "top-bar">
             <button>View Highscores</button>
-            <p>Timer: <div id= "countdown" > 01:60 </div> </p>
+            <p>Timer: <span id= "countdown" > 160 </span> </p>
         </div>
 
         <!--inner div-->
@@ -24,14 +24,22 @@
             <!-- Main Header-->
             <Header class= "intro">
                 <h1>Coding Quiz Challenge</h1>
-                <P>To get started click the start button</P>
-
-
+                <div id= "starttext" >To get started click the start button</div>
             </Header>
+            <button id="startbutton">start</button>
 
             <!--quiz content-->
             <main>
-                <button id="startbutton">start</button>
+                <div id = "questionwindow">
+                    <h2 id="question">hello</h2>
+                    <div id="mcA"></div>
+                    <div id="mcB"></div>
+                    <div id="mcC"></div>
+                    <div id="mcD"></div>
+                </div>    
+                
+
+                
 
 
             </main>
