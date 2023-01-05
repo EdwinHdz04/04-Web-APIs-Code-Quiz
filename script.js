@@ -12,25 +12,30 @@ var starttext = document.querySelector("#starttext");
 var correctanswer = document.querySelector("#correctanswer");
 var validationtext = document.querySelector("#validationtext");
 var questionnumber = 1;
-var timeleft = 160;
-var highscorebutton = document.querySelector("#highscorebutton");
-var Highscores = document.querySelector("#Highscores");
+var timeleft = 70;
+var scorebutton = document.querySelector("#scorebutton");
+var scores = document.querySelector("#scores");
 var initials = document.querySelector("#initials");
 var initialsubmit = document.querySelector("#initialsubmit");
 var initialfield = document.querySelector("#initialfield");
 var leaderboard = document.getElementById("leaderboard");
 var userscore = document.querySelector("#userscore");
+var GameOver = document.querySelector("#GameOver");
+var timeInterval = null
+var resetbutton = document.querySelector("#resetbutton");
+var getstarted = document.querySelector("#getstarted");
+
 score = 0;
 localStorage.setItem("score",score);
 
-highscorebutton.addEventListener("click",function(event){
-    if (Highscores.style.display == "block"){
+scorebutton.addEventListener("click",function(event){
+    if (scores.style.display == "block"){
         questionwindow.style.display="block";
-        Highscores.style.display= "none";
+        scores.style.display= "none";
         
     }else{
     questionwindow.style.display="none";
-    Highscores.style.display= "block";
+    scores.style.display= "block";
     }
 
 });
@@ -41,11 +46,23 @@ mcB.addEventListener("click",function(event){validation(event)});
 mcC.addEventListener("click",function(event){validation(event)});
 mcD.addEventListener("click",function(event){validation(event)});
 
-
+//I click the start button
 startbutton.addEventListener("click",function(event)
 {countdown();
 populatequestiondata(questionnumber);   
+startbutton.style.display = "none"
 
+});
+resetbutton.addEventListener("click",function(event){
+    questionnumber = 1;
+    timeleft = 70;
+    userscore = 0;
+    populatequestiondata(questionnumber); 
+    countdown()
+    questionwindow.style.display="block";
+    starttext.style.display= "block";
+    GameOver.style.display="none";
+    resetbutton.style.display="none";
 });
 
 function populatequestiondata (questionnumber) {
@@ -57,14 +74,14 @@ function populatequestiondata (questionnumber) {
         mcC.textContent = questionlist[0].answers[2];
         mcD.textContent = questionlist[0].answers[3];
         question.textContent = questionlist[0].questions;
-        starttext.textContent = "";
+        starttext.style.display= "none";
+        getstarted.style.display= "none";
         correctanswer.textContent = questionlist[0].correctanswer;
     } else {
         questionwindow.style.display="none";
         var score = localStorage.getItem("score"); 
         userscore.textContent= score;
-
-       
+        GameOver.style.display= "block";
         initials.style.display= "block";
 
     }
@@ -72,17 +89,22 @@ function populatequestiondata (questionnumber) {
 } 
 
 
-
+//timer starts and I am presented with a question
 function countdown() {
+    if(typeof timeInterval!=="undefined"){
+        clearInterval(timeInterval);
+    }
+
     
-    
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
       timeleft--;
       timerEl.textContent = timeleft;
       if(timeleft <= 0){
         timerEl.textContent = "";
         clearInterval(timeInterval);
-        
+        questionwindow.style.display="none";
+        initials.style.display= "block";
+        GameOver.style.display= "block";
       }
      
       
@@ -176,7 +198,10 @@ function countdown() {
     }
     return questionlist;
  }
-
+ //I answer a question
+ //I am presented with another question
+ //I answer a question incorrectly
+ 
  function validation(event) {
     if (event) {
         var useranswer = event.target.textContent;
@@ -191,6 +216,7 @@ function countdown() {
     }else {
         validationtext.textContent = "wrong";
         timeleft = timerEl.textContent - 10
+        clearInterval(timeInterval);
         countdown();
         questionnumber++;
         populatequestiondata(questionnumber);
@@ -199,10 +225,8 @@ function countdown() {
 
     }
     
-    
-
-
  }
+//  I can save my initials and my score
 initialsubmit.addEventListener("click",function(event)
     
     { 
@@ -210,5 +234,8 @@ initialsubmit.addEventListener("click",function(event)
         console.log(initialfield.value + questionnumber);
         var score = localStorage.getItem("score")
         $("#leaderboard").append($("<tr><td>" + initialfield.value + "</td><td>"+ score + "</td></tr>")); 
+        var userdata={"initials":initialfield.value,"score":score}
+        localStorage.setItem("userdata",JSON.stringify(userdata));
+        resetbutton.style.display ="block"
         initials.style.display= "none"
        });

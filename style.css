@@ -51,7 +51,7 @@
 #correctanswer{
    visibility: hidden; 
 }
-#Highscores{
+#scores{
    display: none;
 }
 #initials{
@@ -60,4 +60,10 @@
 #initialfield{
    border: 3px solid purple;
    
+}
+#GameOver{
+   display: none;
+}
+#resetbutton{
+   display: none;
 }

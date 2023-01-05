@@ -14,9 +14,9 @@
 
         <!--Top bar section -->
         <div class= "top-bar">
-            <button id="highscorebutton">View Highscores</button>
-            <p>Timer: <span id= "countdown" > 160 </span> </p>
-            <div id= "Highscores">
+            <button id="scorebutton">View Scores</button>
+            <p>Timer: <span id= "countdown" > 70 </span> </p>
+            <div id= "scores">
                 <table id="leaderboard">
                     <tr id="header"><th>NAME</th><th>SCORE</th> </tr>
                     
@@ -32,11 +32,14 @@
             <Header class= "intro">
                 <h1>Coding Quiz Challenge</h1>
                 <div id= "starttext" >Hello Coders!!
-                    Lets Play a game answer the following coding questions within the time limit. If you fail to answer correctrly you will DIE!! just kidding you will be  penalize your time by 10 seconds!
+                    Lets Play a game answer the following coding questions within the time limit. If you fail to answer correctrly you will DIE!! just kidding you will be  penalize your time by 10 seconds!</div>
                     
-                    To get started click the start button</div>
+                    <div id="getstarted">To get started click the start button</div>
+
             </Header>
             <button id="startbutton">start</button>
+            <button id="resetbutton">reset</button>
+            <div id="GameOver">Game Over</div>
 
             <!--quiz content-->
             <main>
@@ -58,12 +61,6 @@
                     <button id="initialsubmit">save</button>
                 </form>
                 </div>
-
-
-
-                
-
-                
 
 
             </main>
