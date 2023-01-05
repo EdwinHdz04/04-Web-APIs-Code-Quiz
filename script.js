@@ -15,6 +15,13 @@ var questionnumber = 1;
 var timeleft = 160;
 var highscorebutton = document.querySelector("#highscorebutton");
 var Highscores = document.querySelector("#Highscores");
+var initials = document.querySelector("#initials");
+var initialsubmit = document.querySelector("#initialsubmit");
+var initialfield = document.querySelector("#initialfield");
+var leaderboard = document.getElementById("leaderboard");
+var userscore = document.querySelector("#userscore");
+score = 0;
+localStorage.setItem("score",score);
 
 highscorebutton.addEventListener("click",function(event){
     if (Highscores.style.display == "block"){
@@ -44,17 +51,25 @@ populatequestiondata(questionnumber);
 function populatequestiondata (questionnumber) {
  
     var questionlist = questions(questionnumber);
-    mcA.textContent = questionlist[0].answers[0];
-    mcB.textContent = questionlist[0].answers[1];
-    mcC.textContent = questionlist[0].answers[2];
-    mcD.textContent = questionlist[0].answers[3];
-    question.textContent = questionlist[0].questions;
-    starttext.textContent = "";
-    correctanswer.textContent = questionlist[0].correctanswer;
+    if (questionlist[0]) {
+        mcA.textContent = questionlist[0].answers[0];
+        mcB.textContent = questionlist[0].answers[1];
+        mcC.textContent = questionlist[0].answers[2];
+        mcD.textContent = questionlist[0].answers[3];
+        question.textContent = questionlist[0].questions;
+        starttext.textContent = "";
+        correctanswer.textContent = questionlist[0].correctanswer;
+    } else {
+        questionwindow.style.display="none";
+        var score = localStorage.getItem("score"); 
+        userscore.textContent= score;
+
+       
+        initials.style.display= "block";
+
+    }
+    
 } 
-
-
-
 
 
 
@@ -64,10 +79,10 @@ function countdown() {
     var timeInterval = setInterval(function () {
       timeleft--;
       timerEl.textContent = timeleft;
-      if(timeleft === 0){
+      if(timeleft <= 0){
         timerEl.textContent = "";
-        clearInterval(timeInterval)
-        displayMessage();
+        clearInterval(timeInterval);
+        
       }
      
       
@@ -89,10 +104,75 @@ function countdown() {
         questions: "question 2",
         answers: [1,2,3,4],
         correctanswer: 2 }];      
-        
-        break;
     
-      
+        break;
+        case 3 :
+        var questionlist=[
+        {
+        questions: "question 3",
+        answers: [1,2,3,4],
+        correctanswer: 2 }];      
+    
+        break;
+        case 4 :
+        var questionlist=[
+        {
+        questions: "question 4",
+        answers: [1,2,3,4],
+        correctanswer: 2 }];      
+    
+        break;
+        case 5 :
+        var questionlist=[
+        {
+        questions: "question 5",
+        answers: [1,2,3,4],
+        correctanswer: 2 }];      
+    
+        break;
+        case 6 :
+        var questionlist=[
+        {
+        questions: "question 6",
+        answers: [1,2,3,4],
+        correctanswer: 2 }];      
+    
+        break;
+        case 7 :
+        var questionlist=[
+        {
+        questions: "question 7",
+        answers: [1,2,3,4],
+        correctanswer: 2 }];      
+    
+        break;
+        case 8 :
+        var questionlist=[
+        {
+        questions: "question 8",
+        answers: [1,2,3,4],
+        correctanswer: 2 }];      
+    
+        break;
+        case 9 :
+        var questionlist=[
+        {
+        questions: "question 9",
+        answers: [1,2,3,4],
+        correctanswer: 2 }];      
+    
+        break;
+        case 10 :
+        var questionlist=[
+        {
+        questions: "question 10",
+        answers: [1,2,3,4],
+        correctanswer: 2 }];      
+    
+        break;
+        default: 
+        var questionlist = [false];
+    
     }
     return questionlist;
  }
@@ -101,6 +181,9 @@ function countdown() {
     if (event) {
         var useranswer = event.target.textContent;
     if (useranswer == correctanswer.textContent) {
+        var score = localStorage.getItem("score");
+        score++;
+        localStorage.setItem('score',score);
         questionnumber++;
         validationtext.textContent = "";
         populatequestiondata(questionnumber);
@@ -108,13 +191,24 @@ function countdown() {
     }else {
         validationtext.textContent = "wrong";
         timeleft = timerEl.textContent - 10
-         countdown();
+        countdown();
+        questionnumber++;
+        populatequestiondata(questionnumber);
     }  
 
-    
-    
+
     }
     
-  
     
+
+
  }
+initialsubmit.addEventListener("click",function(event)
+    
+    { 
+        event.preventDefault();
+        console.log(initialfield.value + questionnumber);
+        var score = localStorage.getItem("score")
+        $("#leaderboard").append($("<tr><td>" + initialfield.value + "</td><td>"+ score + "</td></tr>")); 
+        initials.style.display= "none"
+       });

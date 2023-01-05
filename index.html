@@ -16,6 +16,13 @@
         <div class= "top-bar">
             <button id="highscorebutton">View Highscores</button>
             <p>Timer: <span id= "countdown" > 160 </span> </p>
+            <div id= "Highscores">
+                <table id="leaderboard">
+                    <tr id="header"><th>NAME</th><th>SCORE</th> </tr>
+                    
+                </table>
+            </div>
+
         </div>
 
         <!--inner div-->
@@ -24,14 +31,17 @@
             <!-- Main Header-->
             <Header class= "intro">
                 <h1>Coding Quiz Challenge</h1>
-                <div id= "starttext" >To get started click the start button</div>
+                <div id= "starttext" >Hello Coders!!
+                    Lets Play a game answer the following coding questions within the time limit. If you fail to answer correctrly you will DIE!! just kidding you will be  penalize your time by 10 seconds!
+                    
+                    To get started click the start button</div>
             </Header>
             <button id="startbutton">start</button>
 
             <!--quiz content-->
             <main>
                 <div id = "questionwindow">
-                    <h2 id="question">hello</h2>
+                    <h2 id="question"> </h2>
                 <div id="validationtext"></div>
                     <div id="mcA"></div>
                     <div id="mcB"></div>
@@ -40,13 +50,16 @@
                     <div id="correctanswer"></div>
                     <div id="questionnumber"></div>
                 </div> 
-                <div id= "Highscores">
-                    <ul>
-                        <li>initials- score </li>
-
-
-                    </ul>
+                
+                <div id="initials"><form>
+                    <label>Player Initials</label>
+                    <input type = "text" id="initialfield"/>
+                    <div id ="userscore"></div>
+                    <button id="initialsubmit">save</button>
+                </form>
                 </div>
+
+
 
                 
 
@@ -58,5 +71,6 @@
     </div>
 </body>
 <script src="./script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </html>
