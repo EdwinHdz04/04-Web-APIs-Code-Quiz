@@ -1,4 +1,4 @@
-
+//Global Varaibles-Createwd variables  to track values
 
 var questionwindow = document.querySelector("#questionwindow");
 var startbutton = document.querySelector("#startbutton");
@@ -24,10 +24,11 @@ var GameOver = document.querySelector("#GameOver");
 var timeInterval = null
 var resetbutton = document.querySelector("#resetbutton");
 var getstarted = document.querySelector("#getstarted");
-
+//Initializing local storage with set item method.
 score = 0;
 localStorage.setItem("score",score);
 
+//Event listener to toggle from highscore to questions.
 scorebutton.addEventListener("click",function(event){
     if (scores.style.display == "block"){
         questionwindow.style.display="block";
@@ -40,19 +41,20 @@ scorebutton.addEventListener("click",function(event){
 
 });
 
-
+//added event listener for mutilple choice questions to be ble to run the validation fucntion.
 mcA.addEventListener("click",function(event){validation(event)});
 mcB.addEventListener("click",function(event){validation(event)});
 mcC.addEventListener("click",function(event){validation(event)});
 mcD.addEventListener("click",function(event){validation(event)});
 
-//I click the start button
+//added event listern to click the start button and to be ablel to populate questions.
 startbutton.addEventListener("click",function(event)
 {countdown();
 populatequestiondata(questionnumber);   
 startbutton.style.display = "none"
 
 });
+//added event listener to the reset button to start the quiz again.
 resetbutton.addEventListener("click",function(event){
     questionnumber = 1;
     timeleft = 70;
@@ -64,7 +66,7 @@ resetbutton.addEventListener("click",function(event){
     GameOver.style.display="none";
     resetbutton.style.display="none";
 });
-
+// added fucntion to select new queastion and populate question data.
 function populatequestiondata (questionnumber) {
  
     var questionlist = questions(questionnumber);
@@ -89,7 +91,7 @@ function populatequestiondata (questionnumber) {
 } 
 
 
-//timer starts and I am presented with a question
+//added function created the countdown time and handles game over.
 function countdown() {
     if(typeof timeInterval!=="undefined"){
         clearInterval(timeInterval);
@@ -110,6 +112,7 @@ function countdown() {
       
     }, 1000);
   }
+  //added the switch function to collect question data.
  function questions(params) {
     switch (params) {
         case 1 : 
@@ -198,10 +201,8 @@ function countdown() {
     }
     return questionlist;
  }
- //I answer a question
- //I am presented with another question
- //I answer a question incorrectly
- 
+
+ //added fucntion to validate the user answer to the question. if the user is correct we increment the score and if the user is wrong we deduct 10 seconds from the timer. either if they get it right or wrong we populate to the next question.
  function validation(event) {
     if (event) {
         var useranswer = event.target.textContent;
@@ -226,7 +227,7 @@ function countdown() {
     }
     
  }
-//  I can save my initials and my score
+//added event listener  to submit the form into the high schores.
 initialsubmit.addEventListener("click",function(event)
     
     { 
