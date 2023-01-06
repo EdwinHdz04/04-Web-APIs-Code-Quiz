@@ -115,81 +115,81 @@ function countdown() {
         case 1 : 
         var questionlist=[
         {
-        questions: "how are you",
-        answers: [1,2,3,4],
-        correctanswer: 1 }];
+        questions: "What is coding? (basically)",
+        answers: ["1.- A number to assign different computers","2.- A game to give instructions","3.- All the standards to teach technology in the classroom", "4.-Coding is the computer language used to develop apps, webs ites and software"],
+        correctanswer: "4.-Coding is the computer language used to develop apps, webs ites and software"}];
 
-            break;
+        break;
         case 2 :
         var questionlist=[
         {
-        questions: "question 2",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: "What are the base langauges behind every single website?",
+        answers: ["1.- HTML","2.- CSS","3.- JavaScript", "4.- ALL"],
+        correctanswer: "4.- ALL"}];      
     
         break;
         case 3 :
         var questionlist=[
         {
-        questions: "question 3",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: "How does a code work?",
+        answers: ["1.-It organizes viruses","2.-It tells your computer what to do","3.-It doesn't work at all","4.-It is a random number"],
+        correctanswer: "2.-It tells your computer what to do" }]; 
     
         break;
         case 4 :
         var questionlist=[
         {
-        questions: "question 4",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: "Which is the proper way to write an h1 tag",
+        answers: ["1.-<h1>Hello</h1>","2.-<h1>Hello","3.-h1 hello h1","4.-<h1>Hello<h1>"],
+        correctanswer: "1.-<h1>Hello</h1>" }];      
     
         break;
         case 5 :
         var questionlist=[
         {
-        questions: "question 5",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: " What symbols go around the properties for each HTML tag?",
+        answers: ["1.-< >","2.-[ ]","3.-{ }","4.-( )"],
+        correctanswer: "1.-< >" }];      
     
         break;
         case 6 :
         var questionlist=[
         {
-        questions: "question 6",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: "In which section is the content of a webpage written?",
+        answers: ["1.-Head section","2.-HTML section","3.-Body","4.-Title section"],
+        correctanswer: "3.-Body" }];      
     
         break;
         case 7 :
         var questionlist=[
         {
-        questions: "question 7",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: "How do you change the font color with CSS?",
+        answers: ["1.-font-color: green;","2.-color: green;","3.-change-font-color: green;","4.-fontcolor=green;"],
+        correctanswer: "2.-color: green;" }];      
     
         break;
         case 8 :
         var questionlist=[
         {
-        questions: "question 8",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: "How do you align text in the center?",
+        answers: ["1.-text-align: center;","2.-text-align: middle;","3.-text-align: left;","4.-text-align: right;"],
+        correctanswer: "1.-text-align: center;"}];      
     
         break;
         case 9 :
         var questionlist=[
         {
-        questions: "question 9",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: "CSS stands for?",
+        answers: ["1.-Cooperative Standing Style","2.-Continuous Sheet Style","3.-Cascading Style Sheets","4.-Can't See Style"],
+        correctanswer: "3.-Cascading Style Sheets"}];      
     
         break;
         case 10 :
         var questionlist=[
         {
-        questions: "question 10",
-        answers: [1,2,3,4],
-        correctanswer: 2 }];      
+        questions: "WHAT website did we use in class as a reference for our code?",
+        answers: ["1.-w3schools","2.-downloadmoreram.com","3.-Wikipedia","4.-Google"],
+        correctanswer: "1.-w3schools" }];      
     
         break;
         default: 
